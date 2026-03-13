@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Burdur Ata Yumurta</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --brown: #8B5C1A;
+    --brown-dark: #5C3A0F;
+    --brown-light: #C8894A;
+    --cream: #F7F3EA;
+    --cream-dark: #EDE5D0;
+    --warm-white: #FDFAF4;
+    --text-dark: #2C1A06;
+    --text-mid: #6B4A1E;
+    --fb-btn: #5C3A0F;
+    --fb-btn-hover: #3e2508;
+  }
+  body { font-family: 'Lora', Georgia, serif; background: var(--warm-white); color: var(--text-dark); overflow-x: hidden; }
+
+  nav { background: var(--warm-white); border-bottom: 1px solid var(--cream-dark); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--brown-dark); letter-spacing: 0.02em; text-decoration: none; }
+  .nav-logo span { color: var(--brown-light); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.88rem; color: var(--text-mid); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--brown); }
+  .nav-fb { display: inline-flex; align-items: center; gap: 6px; background: var(--cream-dark); color: var(--brown-dark); font-size: 0.8rem; padding: 6px 14px; border-radius: 20px; text-decoration: none; border: 1px solid #d4c4a0; transition: background 0.2s; }
+  .nav-fb:hover { background: #ddd0b0; color: var(--brown-dark); }
+
+  .hero { background: var(--cream); padding: 5rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, #e8d8b840 0%, transparent 70%); pointer-events: none; }
+  .hero-badge { display: inline-block; background: var(--brown-light); color: var(--warm-white); font-size: 0.72rem; font-family: 'Lora', serif; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 18px; border-radius: 20px; margin-bottom: 1.5rem; }
+  .logo-circle { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--brown); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; background: var(--warm-white); overflow: hidden; box-shadow: 0 4px 32px #8b5c1a18; }
+  .logo-circle img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 900; color: var(--brown-dark); line-height: 1.1; margin-bottom: 1rem; }
+  .hero h1 span { color: var(--brown-light); }
+  .hero-sub { font-size: 1.1rem; color: var(--text-mid); font-style: italic; margin-bottom: 2.5rem; }
+  .hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+  .hero-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--brown); color: var(--warm-white); font-family: 'Lora', serif; font-size: 1rem; padding: 14px 32px; border-radius: 40px; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s, transform 0.15s; box-shadow: 0 4px 20px #8b5c1a30; }
+  .hero-cta:hover { background: var(--brown-dark); transform: translateY(-2px); }
+  .hero-cta-fb { display: inline-flex; align-items: center; gap: 10px; background: var(--cream-dark); color: var(--brown-dark); font-family: 'Lora', serif; font-size: 1rem; padding: 14px 32px; border-radius: 40px; text-decoration: none; letter-spacing: 0.04em; border: 1px solid #d4c4a0; transition: background 0.2s, transform 0.15s; }
+  .hero-cta-fb:hover { background: #ddd0b0; transform: translateY(-2px); }
+
+  .divider { display: flex; align-items: center; gap: 1rem; padding: 0 2rem; margin: 3rem auto; max-width: 800px; }
+  .divider-line { flex: 1; height: 1px; background: var(--cream-dark); }
+  .divider-icon { color: var(--brown-light); font-size: 1.4rem; }
+
+  .section { padding: 4rem 2rem; max-width: 960px; margin: 0 auto; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--brown-dark); text-align: center; margin-bottom: 0.5rem; }
+  .section-sub { text-align: center; color: var(--text-mid); font-style: italic; margin-bottom: 3rem; font-size: 0.95rem; }
+
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+  .feature-card { background: var(--cream); border: 1px solid var(--cream-dark); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; }
+  .feature-icon { font-size: 2.4rem; display: block; margin-bottom: 1rem; }
+  .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--brown-dark); margin-bottom: 0.5rem; }
+  .feature-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; }
+
+  .products-section { background: var(--cream); padding: 4rem 2rem; }
+  .products-inner { max-width: 960px; margin: 0 auto; }
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .product-card { background: var(--warm-white); border: 1px solid var(--cream-dark); border-radius: 16px; padding: 1.75rem; display: flex; align-items: flex-start; gap: 1rem; }
+  .product-emoji { font-size: 2rem; flex-shrink: 0; }
+  .product-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--brown-dark); margin-bottom: 0.3rem; }
+  .product-card p { font-size: 0.83rem; color: var(--text-mid); line-height: 1.6; }
+  .product-badge { display: inline-block; margin-top: 0.5rem; font-size: 0.72rem; background: #e8d8b8; color: var(--brown-dark); padding: 3px 10px; border-radius: 12px; letter-spacing: 0.05em; }
+
+  /* Cream egg swatch */
+  .egg-swatch { width: 2rem; height: 2rem; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: #F0E6C8; border: 1px solid #d4c4a0; flex-shrink: 0; margin-top: 2px; }
+
+  .why-section { padding: 4rem 2rem; max-width: 960px; margin: 0 auto; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+  @media (max-width: 600px) { .why-grid { grid-template-columns: 1fr; } }
+  .why-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .why-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--cream-dark); line-height: 1; flex-shrink: 0; min-width: 2.5rem; }
+  .why-item h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--brown-dark); margin-bottom: 0.3rem; }
+  .why-item p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.7; }
+
+  .contact-section { background: var(--brown-dark); color: var(--warm-white); padding: 4rem 2rem; text-align: center; }
+  .contact-section h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 0.5rem; color: var(--warm-white); }
+  .contact-section > p { color: #c8a87a; font-style: italic; margin-bottom: 2.5rem; font-size: 0.95rem; }
+  .contact-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; max-width: 700px; margin: 0 auto 2.5rem; }
+  .contact-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 1.25rem 2rem; min-width: 200px; }
+  .contact-item-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown-light); margin-bottom: 0.4rem; }
+  .contact-item-value { font-size: 1rem; color: var(--warm-white); font-weight: 600; }
+  .contact-buttons { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+  .contact-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--brown-light); color: var(--warm-white); font-family: 'Lora', serif; font-size: 1rem; padding: 14px 36px; border-radius: 40px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .contact-cta:hover { background: var(--brown); transform: translateY(-2px); }
+  .contact-cta-fb { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.1); color: var(--warm-white); font-family: 'Lora', serif; font-size: 1rem; padding: 14px 36px; border-radius: 40px; text-decoration: none; border: 1px solid rgba(255,255,255,0.25); transition: background 0.2s, transform 0.15s; }
+  .contact-cta-fb:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
+
+  footer { background: #2C1A06; color: #8B6A3A; text-align: center; padding: 1.5rem; font-size: 0.8rem; letter-spacing: 0.04em; }
+  footer a { color: #C8894A; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .fb-icon { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">ATA <span>YUMURTA</span></a>
+  <ul class="nav-links">
+    <li><a href="#urunler">Ürünlerimiz</a></li>
+    <li><a href="#hakkimizda">Hakkımızda</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+    <li>
+      <a class="nav-fb" href="https://www.facebook.com/p/Burdur-Ata-Yumurta-61581690427457/" target="_blank">
+        <svg class="fb-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <span class="hero-badge">Burdur'dan Sofranıza</span>
+  <div class="logo-circle">
+    <img src="logo.jpg" alt="Ata Yumurta Logo">
+  </div>
+  <h1>Burdur <span>Ata Yumurta</span></h1>
+  <p class="hero-sub">Çiftlikten sofraya, her gün taze yumurta</p>
+  <div class="hero-buttons">
+    <a href="tel:05077403262" class="hero-cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.12 12 19.79 19.79 0 0 1 1.05 3.4 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16l.92.92z"/></svg>
+      Hemen Ara
+    </a>
+    <a href="https://www.facebook.com/p/Burdur-Ata-Yumurta-61581690427457/" target="_blank" class="hero-cta-fb">
+      <svg class="fb-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook Sayfamız
+    </a>
+  </div>
+</section>
+
+<section class="section" id="hakkimizda">
+  <h2 class="section-title">Neden Ata Yumurta?</h2>
+  <p class="section-sub">Doğal beslenme, temiz çevre, günlük tazelik</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">🌿</span>
+      <h3>Doğal Besleme</h3>
+      <p>Tavuklarımız doğal yemlerle, katkısız ve özgür ortamda beslenir.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🥚</span>
+      <h3>Günlük Taze</h3>
+      <p>Her gün toplanan yumurtalar aynı gün teslim edilir, tazeliği garantiliyiz.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🏡</span>
+      <h3>Köy Çiftliği</h3>
+      <p>Burdur'un temiz havasında, aile işletmesi anlayışıyla üretim yapıyoruz.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🚚</span>
+      <h3>Hızlı Teslimat</h3>
+      <p>Burdur ve çevresine kapıya kadar hızlı ve güvenli teslimat sağlıyoruz.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-icon">✦</span>
+  <div class="divider-line"></div>
+</div>
+
+<section class="products-section" id="urunler">
+  <div class="products-inner">
+    <h2 class="section-title">Ürünlerimiz</h2>
+    <p class="section-sub">Her ihtiyaca uygun, taze yumurta çeşitleri</p>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="egg-swatch"></div>
+        <div>
+          <h3>Krem Yumurta</h3>
+          <p>Doğal krem renkli, günlük toplanan, bol vitaminli çiftlik yumurtası.</p>
+          <span class="product-badge">Günlük taze</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="egg-swatch" style="background:#E8DCC0;"></div>
+        <div>
+          <h3>Köy Yumurtası</h3>
+          <p>Çiftliğimizin özel tavuklarından, serbest gezen doğal köy yumurtası.</p>
+          <span class="product-badge">Doğal beslenme</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="product-emoji">📦</span>
+        <div>
+          <h3>Toplu Sipariş</h3>
+          <p>Market, restoran ve kurumsal müşteriler için uygun fiyatlı toplu satış.</p>
+          <span class="product-badge">Özel fiyat</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="product-emoji">🏠</span>
+        <div>
+          <h3>Ev Teslimatı</h3>
+          <p>Düzenli abonelik ile her hafta taze yumurta kapınıza gelsin.</p>
+          <span class="product-badge">Haftalık abonelik</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <h2 class="section-title">Bizi Farklı Kılan</h2>
+  <p class="section-sub">Kalitemizi güvence altına alan değerlerimiz</p>
+  <div class="why-grid">
+    <div class="why-item">
+      <span class="why-num">01</span>
+      <div>
+        <h4>%100 Doğal Üretim</h4>
+        <p>Hormon ve antibiyotik kullanmadan, doğal yöntemlerle yetiştirilen tavuklardan elde edilen yumurtalar.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <span class="why-num">02</span>
+      <div>
+        <h4>Serbest Gezinen Tavuklar</h4>
+        <p>Açık havada, geniş alanda serbestçe dolaşan tavuklarımız daha sağlıklı yumurtalar üretir.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <span class="why-num">03</span>
+      <div>
+        <h4>Hijyenik Koşullar</h4>
+        <p>Düzenli denetlenen, temiz ve hijyenik çiftlik ortamında üretim güvencesi.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <span class="why-num">04</span>
+      <div>
+        <h4>Müşteri Memnuniyeti</h4>
+        <p>Yıllardır güvenilir hizmet anlayışıyla, memnun müşteri kitlesiyle hizmet veriyoruz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="iletisim">
+  <h2>İletişime Geçin</h2>
+  <p>Sipariş vermek veya bilgi almak için bizi arayın</p>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <div class="contact-item-label">İletişim Kişisi</div>
+      <div class="contact-item-value">Furkan Kaymaz</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-item-label">Telefon</div>
+      <div class="contact-item-value">0507 740 3262</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-item-label">Konum</div>
+      <div class="contact-item-value">Burdur, Kışla Mah.</div>
+    </div>
+  </div>
+  <div class="contact-buttons">
+    <a href="tel:05077403262" class="contact-cta">📞 &nbsp;Sipariş İçin Ara</a>
+    <a href="https://www.facebook.com/p/Burdur-Ata-Yumurta-61581690427457/" target="_blank" class="contact-cta-fb">
+      <svg class="fb-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook Sayfamızı Takip Edin
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2025 Burdur Ata Yumurta Çiftliği · Günlük Taze Yumurta · Burdur, Kışla Mah.
+  &nbsp;|&nbsp;
+  <a href="https://www.facebook.com/p/Burdur-Ata-Yumurta-61581690427457/" target="_blank">Facebook</a>
+</footer>
+
+</body>
+</html>
