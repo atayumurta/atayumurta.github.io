@@ -1,0 +1,22 @@
+{
+  "name": "Burdur Ata Yumurta",
+  "short_name": "Ata Yumurta",
+  "description": "Burdur'dan günlük taze yumurta. Çiftlikten sofraya.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F7F3EA",
+  "theme_color": "#5C3A0F",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "48x48 64x64 128x128 256x256",
+      "type": "image/x-icon"
+    }
+  ]
+}
