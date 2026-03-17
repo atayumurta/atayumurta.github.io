@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Front Print</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* All values in px at 300 dpi (1mm = 11.811px, 1pt = 4.167px) */
+    :root {
+      --brown:       #8B5C1A;
+      --brown-dark:  #5C3A0F;
+      --brown-deep:  #3A2208;
+      --brown-light: #C8894A;
+      --brown-pale:  #D4A96A;
+      --cream:       #F7F3EA;
+      --cream-dark:  #EDE5D0;
+      --warm-white:  #FDFAF4;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 1004px;
+      height: 650px;
+      overflow: hidden;
+      background: #F7F3EA;
+      font-family: 'Lora', serif;
+    }
+
+    .card {
+      width: 1004px;
+      height: 650px;
+      background: var(--cream);
+      display: grid;
+      grid-template-rows: 1fr auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Egg decorations */
+    .egg-1 {
+      position: absolute;
+      width: 496px; height: 614px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: var(--brown-light);
+      opacity: .07;
+      top: -165px; right: -94px;
+      transform: rotate(18deg);
+    }
+    .egg-2 {
+      position: absolute;
+      width: 260px; height: 331px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: var(--brown-dark);
+      opacity: .05;
+      bottom: -95px; left: -47px;
+      transform: rotate(-12deg);
+    }
+
+    /* Body */
+    .body {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      padding: 65px 71px 47px 71px;
+      gap: 59px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Logo */
+    .logo-wrap {
+      width: 213px; height: 213px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 6.5px solid var(--brown-light);
+      overflow: hidden;
+      box-shadow:
+        0 0 0 14px rgba(200,137,74,.12),
+        0 18px 59px rgba(92,58,15,.18);
+    }
+    .logo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Divider */
+    .divider {
+      width: 3px;
+      align-self: stretch;
+      background: var(--cream-dark);
+      flex-shrink: 0;
+      margin: 12px 0;
+    }
+
+    /* Text block */
+    .text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 21px;
+    }
+    .eyebrow {
+      font-size: 23px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--brown-light);
+      font-family: 'Lora', serif;
+    }
+    .brand {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.05;
+    }
+    .brand-line1 {
+      display: block;
+      font-size: 63px;
+      font-weight: 900;
+      color: var(--brown-dark);
+      letter-spacing: -.01em;
+    }
+    .brand-line2 {
+      display: block;
+      font-size: 71px;
+      font-weight: 900;
+      font-style: italic;
+      color: var(--brown-light);
+      letter-spacing: -.02em;
+    }
+    .tagline-rule {
+      width: 118px; height: 2px;
+      background: var(--cream-dark);
+    }
+    .tagline {
+      font-size: 25px;
+      font-style: italic;
+      color: var(--brown);
+      line-height: 1.55;
+      font-family: 'Lora', serif;
+    }
+
+    /* Footer strip */
+    .footer {
+      background: var(--brown-deep);
+      padding: 24px 71px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+    .footer-brand {
+      font-size: 21px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(212,169,106,.7);
+      font-family: 'Lora', serif;
+    }
+    .footer-location {
+      font-size: 21px;
+      color: rgba(212,169,106,.45);
+      font-family: 'Lora', serif;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="egg-1"></div>
+    <div class="egg-2"></div>
+
+    <div class="body">
+      <div class="logo-wrap">
+        <img src="../logo.jpg" alt="Ata Yumurta">
+      </div>
+      <div class="divider"></div>
+      <div class="text">
+        <span class="eyebrow">Burdur'dan Sofraya</span>
+        <div class="brand">
+          <span class="brand-line1">Burdur</span>
+          <span class="brand-line2">Ata Yumurta</span>
+        </div>
+        <div class="tagline-rule"></div>
+        <p class="tagline">Çiftlikten sofraya,<br>her gün taze yumurta</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="footer-brand">Ata Yumurta Çiftliği</span>
+      <span class="footer-location">Kışla Mah., Burdur</span>
+    </div>
+  </div>
+</body>
+</html>

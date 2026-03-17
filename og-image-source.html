@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--
+  OG IMAGE SOURCE
+  ═══════════════
+  This file generates the og-image.jpg social share card (1200×630).
+
+  HOW TO SCREENSHOT:
+  1. Open this file in Chrome
+  2. Open DevTools (F12 or Cmd+Option+I)
+  3. Click the "Toggle device toolbar" icon (Cmd+Shift+M)
+  4. Set dimensions to  1200 × 630  at 1x (100%) scale
+  5. Click the three-dot menu in DevTools → "Capture screenshot"
+  6. Save the file as og-image.jpg in this folder
+  7. You're done — delete this file from the repo before publishing,
+     or add  og-image-source.html  to a .gitignore if you want to keep it.
+-->
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200">
+  <title>OG Image Source — Ata Yumurta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #1a0a00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      width: 1200px;
+      height: 630px;
+      position: relative;
+      overflow: hidden;
+      background: #F7F3EA;
+      display: flex;
+      align-items: center;
+    }
+
+    /* ── Background elements ── */
+
+    /* Large warm radial glow */
+    .card::before {
+      content: '';
+      position: absolute;
+      width: 900px; height: 900px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #e8d5a8 0%, #F7F3EA 55%, transparent 75%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    /* Egg shape — large background decoration right */
+    .egg-bg-r {
+      position: absolute;
+      width: 520px; height: 650px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: linear-gradient(160deg, #D4A96A 0%, #8B5C1A 100%);
+      opacity: .13;
+      right: -100px; top: -100px;
+      transform: rotate(12deg);
+    }
+
+    /* Egg shape — medium, lower left */
+    .egg-bg-l {
+      position: absolute;
+      width: 280px; height: 350px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: var(--brown-dark, #5C3A0F);
+      opacity: .07;
+      left: -50px; bottom: -80px;
+      transform: rotate(-10deg);
+    }
+
+    /* Thin accent egg — top left */
+    .egg-bg-sm {
+      position: absolute;
+      width: 130px; height: 165px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      border: 2px solid rgba(139,92,26,.15);
+      top: 40px; left: 80px;
+      transform: rotate(-6deg);
+    }
+
+    /* Bottom dark bar */
+    .bottom-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 68px;
+      background: #3A2208;
+      display: flex;
+      align-items: center;
+      padding: 0 72px;
+      gap: 0;
+      justify-content: space-between;
+    }
+    .bottom-domain {
+      font-family: 'Lora', serif;
+      font-size: 22px;
+      color: rgba(212,169,106,.75);
+      letter-spacing: .06em;
+    }
+    .bottom-tag {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: rgba(212,169,106,.5);
+    }
+
+    /* ── Left content ── */
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 0 72px;
+      padding-bottom: 68px; /* above bottom bar */
+      display: flex;
+      align-items: center;
+      gap: 64px;
+      width: 100%;
+    }
+
+    .logo-ring {
+      width: 172px; height: 172px;
+      border-radius: 50%;
+      border: 4px solid #C8894A;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow:
+        0 0 0 10px rgba(200,137,74,.12),
+        0 20px 60px rgba(92,58,15,.25);
+    }
+    .logo-ring img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .text-block {
+      flex: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: 'Lora', serif;
+      font-size: 14px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: #C8894A;
+      background: rgba(200,137,74,.1);
+      border: 1px solid rgba(200,137,74,.22);
+      padding: 5px 18px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      line-height: 1.02;
+      margin-bottom: 20px;
+    }
+    .brand-line1 {
+      display: block;
+      font-size: 68px;
+      color: #5C3A0F;
+      letter-spacing: -.01em;
+    }
+    .brand-line2 {
+      display: block;
+      font-size: 76px;
+      color: #C8894A;
+      font-style: italic;
+      letter-spacing: -.02em;
+    }
+
+    .tagline {
+      font-family: 'Lora', serif;
+      font-size: 22px;
+      color: #6B4A1E;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ── Right egg illustration ── */
+    .egg-showcase {
+      position: absolute;
+      right: 72px;
+      top: 50%;
+      transform: translateY(calc(-50% - 34px)); /* shift up for bottom bar */
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      z-index: 2;
+    }
+    .egg-pair {
+      display: flex;
+      gap: 16px;
+      align-items: flex-end;
+    }
+    .egg {
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      box-shadow:
+        inset 0 -8px 16px rgba(0,0,0,.08),
+        4px 8px 24px rgba(92,58,15,.18);
+    }
+    .egg-lg {
+      width: 96px; height: 118px;
+      background: linear-gradient(155deg, #F6EDDA 20%, #E0C890 100%);
+    }
+    .egg-md {
+      width: 76px; height: 94px;
+      background: linear-gradient(155deg, #D8A86A 20%, #B87840 100%);
+    }
+    .egg-sm {
+      width: 58px; height: 72px;
+      background: linear-gradient(155deg, #F0E5C8 20%, #D8C090 100%);
+    }
+    .egg-label {
+      font-family: 'Lora', serif;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(92,58,15,.4);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="egg-bg-r"></div>
+    <div class="egg-bg-l"></div>
+    <div class="egg-bg-sm"></div>
+
+    <div class="content">
+      <div class="logo-ring">
+        <img src="logo.jpg" alt="">
+      </div>
+      <div class="text-block">
+        <span class="eyebrow">Burdur'dan Sofraya</span>
+        <div class="brand">
+          <span class="brand-line1">Burdur</span>
+          <span class="brand-line2">Ata Yumurta</span>
+        </div>
+        <p class="tagline">Çiftlikten sofraya, her gün taze yumurta</p>
+      </div>
+    </div>
+
+    <div class="egg-showcase">
+      <div class="egg-pair">
+        <div class="egg egg-sm"></div>
+        <div class="egg egg-lg"></div>
+        <div class="egg egg-md"></div>
+      </div>
+      <span class="egg-label">Günlük Taze</span>
+    </div>
+
+    <div class="bottom-bar">
+      <span class="bottom-domain">atayumurta.tr</span>
+      <span class="bottom-tag">0507 740 3262</span>
+    </div>
+  </div>
+</body>
+</html>
